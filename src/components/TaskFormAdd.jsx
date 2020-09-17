@@ -1,10 +1,8 @@
 import React, {useReducer} from 'react';
 import {connect} from 'react-redux';
-import {addTask, updateTask} from '../store/actions/action';
+import {addTask} from '../store/actions/action';
 
 export const TaskForm = props => {
-  console.log(props.task.title);
-
   const [task, setTask] = useReducer(
     (state, newState) => ({...state, ...newState}),
     {
@@ -68,7 +66,7 @@ export const TaskForm = props => {
             <input
               className='btn btn-primary'
               type='submit'
-              value='Send'
+              value='Add'
               style={{
                 borderRadius: '0',
               }}
@@ -80,13 +78,10 @@ export const TaskForm = props => {
   );
 };
 
-const mapStateToProps = state => ({
-  task: state.task,
-});
+const mapStateToProps = state => ({});
 
 const mapDispatchToProps = {
   addTask,
-  updateTask,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(TaskForm);

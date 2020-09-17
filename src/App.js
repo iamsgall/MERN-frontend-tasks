@@ -3,9 +3,9 @@ import './App.css';
 import {Provider} from 'react-redux';
 import store from './store/store';
 import Navigation from './components/Navigation';
-import TaskForm from './components/TaskForm';
 import TaskListContainer from './containers/TaskListContainer';
 import './utils/fontawesome';
+import TaskFormContainer from './containers/TaskFormContainer';
 
 function App() {
   return (
@@ -15,7 +15,8 @@ function App() {
         <div className='container'>
           <div className='row mt-4'>
             <div className='col-md-3'>
-              <TaskForm />
+              {/* <TaskForm /> */}
+              <TaskFormContainer />
             </div>
             <div className='col-md-9'>
               <TaskListContainer />

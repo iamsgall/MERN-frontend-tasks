@@ -10,6 +10,7 @@ const initialState = {
   tasks: [],
   task: [],
   loading: true,
+  hasEditing: false,
 };
 
 export default (state = initialState, {type, payload}) => {
@@ -21,9 +22,22 @@ export default (state = initialState, {type, payload}) => {
     case DELETE_TASK:
       return {...state, tasks: payload.tasks, loading: false};
     case GET_TASK:
-      return {...state, task: payload.task, loading: false};
+      console.log('get task');
+      return {
+        ...state,
+        task: payload.task,
+        loading: false,
+        hasEditing: !state.hasEditing,
+      };
     case UPDATE_TASK:
-      return {...state, tasks: payload.tasks, loading: false};
+      console.log('update');
+      return {
+        ...state,
+        tasks: payload.allTasks,
+        task: [],
+        loading: false,
+        hasEditing: false,
+      };
 
     default:
       return state;

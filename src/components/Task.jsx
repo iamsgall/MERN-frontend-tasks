@@ -38,7 +38,9 @@ export const Task = props => {
   );
 };
 
-const mapStateToProps = state => ({});
+const mapStateToProps = state => ({
+  hasEditing: state.hasEditing,
+});
 
 const mapDispatchToProps = {
   deleteTask,
